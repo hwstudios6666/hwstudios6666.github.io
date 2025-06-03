@@ -46,7 +46,7 @@
             font-weight: 500;
         }
 
-      .hero {
+        .hero {
             height: 100vh;
             display: flex;
             align-items: center;
@@ -113,10 +113,7 @@
                 transform: translateY(0);
             }
         }
-    </style>
-</head>
-<body>
-<style>
+
         /* 新增介绍页样式 */
         .about-section {
             padding: 80px 20px;
@@ -175,215 +172,140 @@
                 margin: 0 auto;
             }
         }
-    </style>
-</head>
-<body>
-    <nav>
-        <a href="#home" class="logo">
-            <img src="hwlogo.png" alt="HW STUDIOS" class="logo">
-        </a>
-        <div class="nav-links">
-            <a href="#home">首页</a>
-            <a href="#games">作品</a>
-            <a href="#about">关于</a>
-            <a href="#contact">联系</a>
-        </div>
-    </nav>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>创造非凡的游戏体验</h1>
-            <p>我们致力于开发充满创意与激情的精品游戏</p>
-        </div>
-        <div class="hero-image">
-            <img src="game-scene.png" alt="游戏场景展示">
-        </div>
-    </section>
-
-
-   </head>
-<body>
-    <!-- 导航保持不变 -->
-
-<!-- 图片在左、文字在右的布局结构 -->
-<section class="introduction-section">
-    <div class="container">
-        <div class="two-column-layout">
-            <!-- 左侧图片容器 -->
-            <div class="image-container">
-                <img src="studios photo.png" alt="介绍图片" class="responsive-image">
-            </div>
-
-            <!-- 右侧文字容器 -->
-            <div class="content-container">
-                <!-- 关于HW STUDIOS -->
-                <h2 class="section-title">关于HW STUDIOS</h2>
-                <div class="content-wrapper">
-                    <p>HW STUDIOS由张智宸和王雍成立的游戏工作室，自2025年成立以来，我们始终致力于打造令人难忘的游戏体验。由游戏开发者同学和编程爱好者同学组成的团队，融合前沿技术与艺术表达，持续为玩家带来惊喜。...</p>
-                     <p>我们相信游戏是连接世界的桥梁，在追求卓越品质的同时，始终坚持「玩家至上」的开发理念。</p>
-<ul class="about-highlights">
-                    <li>8+工作室同学</li>
-                    <li>4+专业开发者同学</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-<footer id="contact">
-    <div class="footer-container">
-        <div class="contact-info">
-            <p class="email-group">
-                <span class="contact-label">我们：</span>
-                <span class="email">hwstudios@163.com</span>
-                <span class="email-separator">　</span>
-            </p>
-            <p class="copyright">© 2025 HW STUDIOS</p>
-        </div>
-    </div>
-</footer>
-<style>
-/* 页脚样式 */
-footer {
-    background-color: #1e3799;
-    padding: 40px 20px;
-    font-family: 'Microsoft YaHei', sans-serif;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.email-group {
-    margin-bottom: 15px;
-    font-size: 1.1em;
-    line-height: 1.6;
-}
-
-.contact-label {
-    color: #ADD8E6;
-    margin-right: 8px;
-}
-
-.email {
-    color: #ffffff;
-    transition: opacity 0.3s ease;
-}
-
-.email:hover {
-    opacity: 0.8;
-    cursor: pointer;
-}
-
-.email-separator {
-    display: inline-block;
-    width: 1.2em; /* 使用全角空格 */
-}
-
-.copyright {
-    color: rgba(255,255,255,0.8);
-    font-size: 0.9em;
-    margin-top: 20px;
-}
-
-/* 响应式优化 */
-@media (max-width: 768px) {
-    .email-group {
-        font-size: 1em;
-    }
-    
-    .email-separator {
-        display: block;
-        height: 8px;
-        width: 0;
-    }
-}
-
-/* 基础布局样式 */
-.two-column-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-}
-
-.image-container {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.responsive-image {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.content-container {
-    padding: 30px 0;
-}
-
-.section-title {
-    font-size: 2.5em;
-    margin-bottom: 1.2em;
-    position: relative;
-    padding-bottom: 0.5em;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: #1e3799;
-}
-
-/* 响应式设计 */
-@media (max-width: 1024px) {
-    .two-column-layout {
-        gap: 40px;
-    }
-    
-    .responsive-image {
-        height: 400px;
-    }
-}
-
-@media (max-width: 768px) {
-    .two-column-layout {
-        grid-template-columns: 1fr;
-    }
-    
-    .image-container {
-        margin-bottom: 30px;
-    }
-    
-    .section-title {
-        font-size: 2em;
-    }
-}
-
-@media (max-width: 480px) {
-    .responsive-image {
-        height: 300px;
-    }
-}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>作品展示 - HW STUDIOS</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* 页脚样式 */
+        footer {
+            background-color: #1e3799;
+            padding: 40px 20px;
             font-family: 'Microsoft YaHei', sans-serif;
         }
 
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .email-group {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .contact-label {
+            color: #ADD8E6;
+            margin-right: 8px;
+        }
+
+        .email {
+            color: #ffffff;
+            transition: opacity 0.3s ease;
+        }
+
+        .email:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        .email-separator {
+            display: inline-block;
+            width: 1.2em; /* 使用全角空格 */
+        }
+
+        .copyright {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+
+        /* 响应式优化 */
+        @media (max-width: 768px) {
+            .email-group {
+                font-size: 1em;
+            }
+            
+            .email-separator {
+                display: block;
+                height: 8px;
+                width: 0;
+            }
+        }
+
+        /* 基础布局样式 */
+        .two-column-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .image-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .responsive-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .content-container {
+            padding: 30px 0;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            margin-bottom: 1.2em;
+            position: relative;
+            padding-bottom: 0.5em;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #1e3799;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .two-column-layout {
+                gap: 40px;
+            }
+            
+            .responsive-image {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .two-column-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .image-container {
+                margin-bottom: 30px;
+            }
+            
+            .section-title {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .responsive-image {
+                height: 300px;
+            }
+        }
+
+        /* 作品部分样式 */
         /* 基础布局 */
         .container {
             max-width: 1200px;
@@ -447,7 +369,55 @@ footer {
     </style>
 </head>
 <body>
-    <div class="container">
+    <nav>
+        <a href="#home" class="logo">
+            <img src="hwlogo.png" alt="HW STUDIOS" class="logo">
+        </a>
+        <div class="nav-links">
+            <a href="#home">首页</a>
+            <a href="#games">作品</a>
+            <a href="#about">关于</a>
+            <a href="#contact">联系</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>创造非凡的游戏体验</h1>
+            <p>我们致力于开发充满创意与激情的精品游戏</p>
+        </div>
+        <div class="hero-image">
+            <img src="game-scene.png" alt="游戏场景展示">
+        </div>
+    </section>
+
+    <!-- 图片在左、文字在右的布局结构 -->
+    <section class="introduction-section" id="about">
+        <div class="container">
+            <div class="two-column-layout">
+                <!-- 左侧图片容器 -->
+                <div class="image-container">
+                    <img src="studios photo.png" alt="介绍图片" class="responsive-image">
+                </div>
+
+                <!-- 右侧文字容器 -->
+                <div class="content-container">
+                    <!-- 关于HW STUDIOS -->
+                    <h2 class="section-title">关于HW STUDIOS</h2>
+                    <div class="content-wrapper">
+                        <p>HW STUDIOS由张智宸和王雍成立的游戏工作室，自2025年成立以来，我们始终致力于打造令人难忘的游戏体验。由游戏开发者同学和编程爱好者同学组成的团队，融合前沿技术与艺术表达，持续为玩家带来惊喜。...</p>
+                        <p>我们相信游戏是连接世界的桥梁，在追求卓越品质的同时，始终坚持「玩家至上」的开发理念。</p>
+                        <ul class="about-highlights">
+                            <li>8+工作室同学</li>
+                            <li>4+专业开发者同学</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container" id="games">
         <h1>我们的作品</h1>
         
         <div class="game-grid">
@@ -468,7 +438,20 @@ footer {
                     <p class="game-description">暂未发布</p>
                 </div>
             </div>
-</style>
-</style>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="contact-info">
+                <p class="email-group">
+                    <span class="contact-label">我们：</span>
+                    <span class="email">hwstudios@163.com</span>
+                    <span class="email-separator">　</span>
+                </p>
+                <p class="copyright">© 2025 HW STUDIOS</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
