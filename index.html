@@ -421,6 +421,13 @@
             color: #4a5568;
         }
 
+        /* 新增双栏详情布局 */
+        .dual-detail-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
         /* 响应式 */
         @media (max-width: 768px) {
             h1 {
@@ -429,6 +436,10 @@
 
             .game-grid {
                 gap: 20px;
+            }
+            
+            .dual-detail-layout {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -507,13 +518,17 @@
                 <img src="game2.png" alt="中室" class="game-image">
                 <div class="game-info">
                     <h3 class="game-title">中室</h3>
-                    <p class="game-description">暂未发布</p>
+                    <p class="game-description">恐怖逃脱游戏</p>
+                    <div class="game-options">
+                        <a href="#the-backrooms-credits">制作人员名单</a>
+                        <a href="#the-backrooms-release-date">发布日期</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 新增制作人员名单部分 -->
+ <!-- 新增制作人员名单部分 -->
     <section class="detail-section" id="block-runner-credits">
         <div class="detail-container">
             <h2 class="detail-title">方块跑酷 - 制作人员名单</h2>
@@ -535,6 +550,33 @@
             <h2 class="detail-title">方块跑酷 - DEMO版本发布日期</h2>
             <div class="detail-content">
                 <p>方块跑酷的 DEMO 版本预计在 2025 年 7 月 31 日发布。</p>
+            </div>
+        </div>
+    </section>
+                <!-- 右侧 - 中室详情 -->
+                <div>
+                    <!-- 中室制作人员名单部分 -->
+                    <section id="the-backrooms-credits">
+                        <h2 class="detail-title">中室 - 制作人员名单</h2>
+                        <div class="detail-content">
+                            <ul>
+                                <li>创意总监：程康</li>
+                                <li>美术指导：张智宸</li>
+                                <li>程序开发：王雍,张智宸</li>
+                                <li>音效设计：王雍,张智宸,叶鑫炎</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- 中室发布日期部分 -->
+                    <section id="the-backrooms-release-date">
+                        <h2 class="detail-title">中室 - 发布日期</h2>
+                        <div class="detail-content">
+                            <p>《中室》DEMO版计划于2026年2月发布，敬请期待！</p>
+                            <p>《中室》完整版计划于2026年2月发布，敬请期待！</p>
+                        </div>
+                    </section>
+                </div>
             </div>
         </div>
     </section>
