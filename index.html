@@ -378,6 +378,49 @@
             font-size: 0.95rem;
         }
 
+        .game-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .game-options a {
+            text-decoration: none;
+            color: #1e3799;
+            border: 1px solid #1e3799;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .game-options a:hover {
+            background-color: #1e3799;
+            color: white;
+        }
+
+        /* 新增制作人员名单和 DEMO 日期部分样式 */
+        .detail-section {
+            padding: 40px 20px;
+            background-color: #f8faff;
+        }
+
+        .detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .detail-title {
+            font-size: 2em;
+            color: #1e3799;
+            margin-bottom: 20px;
+        }
+
+        .detail-content {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+
         /* 响应式 */
         @media (max-width: 768px) {
             h1 {
@@ -398,7 +441,7 @@
         </a>
         <div class="nav-links">
             <!-- 新增捐款按钮 -->
-            <a href="donate.html" class="donate-btn">捐款</a>
+            <a href="https://example.com/donate" class="donate-btn">捐款</a>
             <a href="#home">首页</a>
             <a href="#games">作品</a>
             <a href="#about">关于</a>
@@ -451,7 +494,11 @@
                 <img src="game1.png" alt="方块跑酷" class="game-image">
                 <div class="game-info">
                     <h3 class="game-title">方块跑酷</h3>
-                    <p class="game-description">由张智宸和王雍用Scratch引擎制作的一款跑酷游戏</p>
+                    <p class="game-description">即将发布</p>
+                    <div class="game-options">
+                        <a href="#block-runner-credits">制作人员名单</a>
+                        <a href="#block-runner-demo-date">DEMO版本发布日期</a>
+                    </div>
                 </div>
             </div>
 
@@ -461,11 +508,36 @@
                 <div class="game-info">
                     <h3 class="game-title">中室</h3>
                     <p class="game-description">暂未发布</p>
-                    <p class="game-description">由张智宸和王雍和程康用Unity引擎制作的一款恐怖游戏</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- 新增制作人员名单部分 -->
+    <section class="detail-section" id="block-runner-credits">
+        <div class="detail-container">
+            <h2 class="detail-title">方块跑酷 - 制作人员名单</h2>
+            <div class="detail-content">
+                <p>这里列出方块跑酷的制作人员名单，例如：</p>
+                <ul>
+                    <li>策划：张智宸,王雍</li>
+                    <li>美术：李四</li>
+                    <li>开发：张智宸,王雍,王书航</li>
+                    <li>配音：张智宸,王雍,吴语行</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新增 DEMO 版本发布日期部分 -->
+    <section class="detail-section" id="block-runner-demo-date">
+        <div class="detail-container">
+            <h2 class="detail-title">方块跑酷 - DEMO版本发布日期</h2>
+            <div class="detail-content">
+                <p>方块跑酷的 DEMO 版本预计在 2025 年 7 月 31 日发布。</p>
+            </div>
+        </div>
+    </section>
 
     <footer id="contact">
         <div class="footer-container">
