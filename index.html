@@ -610,7 +610,23 @@
                 alert('已复制');
             });
         });
+
+        // 新增B站链接点击事件
+        const bilibiliLink = document.getElementById('bilibili-link');
+        if (bilibiliLink) {
+            bilibiliLink.addEventListener('click', function() {
+                // 替换为实际的B站链接
+                window.open('https://space.bilibili.com/582736285', '_blank');
+            });
+            
+            // 修改鼠标样式为手型
+            bilibiliLink.style.cursor = 'pointer';
+        }
     </script>
 </body>
 
 </html>
+
+
+
+
