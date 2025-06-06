@@ -590,7 +590,8 @@
                     <span class="email">hwstudios@163.com</span>
                     <span class="email-separator">　</span>
                     <span class="bilibili-icon"></span>
-                    <span class="email" id="bilibili-link">哔哩哔哩：智宸叫HUG</span>
+                    <!-- 移除了email类 -->
+                    <span id="bilibili-link">哔哩哔哩：智宸叫HUG</span>
                 </p>
                 <p class="copyright">© 2025 HW STUDIOS</p>
             </div>
@@ -598,30 +599,28 @@
     </footer>
 
     <script>
-        const emails = document.querySelectorAll('.email');
-        emails.forEach(email => {
-            email.addEventListener('click', function () {
-                const tempInput = document.createElement('input');
-                tempInput.value = this.textContent;
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                document.execCommand('copy');
-                document.body.removeChild(tempInput);
-                alert('已复制');
-            });
-        });
+      // 只选择真正的邮箱元素（在contact-label后面的那个）
+const realEmails = document.querySelectorAll('.contact-label + .email');
+realEmails.forEach(email => {
+    email.addEventListener('click', function () {
+        const tempInput = document.createElement('input');
+        tempInput.value = this.textContent;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        alert('已复制');
+    });
+});
 
-        // 新增B站链接点击事件
-        const bilibiliLink = document.getElementById('bilibili-link');
-        if (bilibiliLink) {
-            bilibiliLink.addEventListener('click', function() {
-                // 替换为实际的B站链接
-                window.open('https://space.bilibili.com/582736285', '_blank');
-            });
-            
-            // 修改鼠标样式为手型
-            bilibiliLink.style.cursor = 'pointer';
-        }
+// B站链接单独处理
+const bilibiliLink = document.getElementById('bilibili-link');
+if (bilibiliLink) {
+    bilibiliLink.addEventListener('click', function() {
+        window.open('https://space.bilibili.com/12345678', '_blank');
+    });
+    bilibiliLink.style.cursor = 'pointer';
+}
     </script>
 </body>
 
