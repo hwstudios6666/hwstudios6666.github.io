@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pong Game</title>
+    <style>
+        body {
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        canvas {
+            background: #222;
+            display: block;
+            margin: auto;
+            border: 2px solid #fff;
+        }
+        h1 {
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="pong" width="600" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById('pong');
+        const ctx = canvas.getContext('2d');
+
+        // Paddle properties
+        const paddleWidth = 10, paddleHeight = 80;
+        const player = { x: 10, y: canvas.height/2 - paddleHeight/2, dy: 0, score: 0 };
+        const ai = { x: canvas.width - paddleWidth - 10, y: canvas.height/2 - paddleHeight/2, dy: 0, score: 0 };
+
+        // Ball properties
+        let ball = {
+            x: canvas.width/2,
+            y: canvas.height/2,
+            radius: 8,
+            speed: 5,
+            dx: 5 * (Math.random() > 0.5 ? 1 : -1),
+            dy: 5 * (Math.random() > 0.5 ? 1 : -1)
+        };
+
+        // Draw functions
+        function drawRect(x, y, w, h, color) {
+            ctx.fillStyle = color;
+            ctx.fillRect(x, y, w, h);
+        }
+        function drawCircle(x, y, r, color) {
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.fill();
+        }
+        function drawText(text, x, y, color) {
+            ctx.fillStyle = color;
+            ctx.font = "32px Arial";
+            ctx.fillText(text, x, y);
+        }
+
+        // Draw everything
+        function draw() {
+            // Clear
+            drawRect(0, 0, canvas.width, canvas.height, "#222");
+            // Net
+            for(let i = 0; i < canvas.height; i += 20) {
+                drawRect(canvas.width/2-1, i, 2, 10, "#fff");
+            }
+            // Scores
+            drawText(player.score, canvas.width/4, 50, "#fff");
+            drawText(ai.score, 3*canvas.width/4, 50, "#fff");
+            // Paddles
+            drawRect(player.x, player.y, paddleWidth, paddleHeight, "#fff");
+            drawRect(ai.x, ai.y, paddleWidth, paddleHeight, "#fff");
+            // Ball
+            drawCircle(ball.x, ball.y, ball.radius, "#fff");
+        }
+
+        // Update positions
+        function update() {
+            // Move player
+            player.y += player.dy;
+            if (player.y < 0) player.y = 0;
+            if (player.y + paddleHeight > canvas.height) player.y = canvas.height - paddleHeight;
+
+            // Simple AI
+            if (ball.y < ai.y + paddleHeight/2) ai.dy = -5;
+            else if (ball.y > ai.y + paddleHeight/2) ai.dy = 5;
+            else ai.dy = 0;
+            ai.y += ai.dy;
+            if (ai.y < 0) ai.y = 0;
+            if (ai.y + paddleHeight > canvas.height) ai.y = canvas.height - paddleHeight;
+
+            // Move ball
+            ball.x += ball.dx;
+            ball.y += ball.dy;
+
+            // Top and bottom collision
+            if (ball.y - ball.radius < 0 || ball.y + ball.radius > canvas.height) {
+                ball.dy *= -1;
+            }
+
+            // Paddle collision
+            let paddle = (ball.x < canvas.width/2) ? player : ai;
+            if (
+                ball.x - ball.radius < paddle.x + paddleWidth &&
+                ball.x + ball.radius > paddle.x &&
+                ball.y + ball.radius > paddle.y &&
+                ball.y - ball.radius < paddle.y + paddleHeight
+            ) {
+                // Calculate collision point
+                let collidePoint = ball.y - (paddle.y + paddleHeight/2);
+                collidePoint = collidePoint / (paddleHeight/2);
+                let angleRad = (Math.PI/4) * collidePoint;
+                // Direction of ball
+                let direction = (ball.x < canvas.width/2) ? 1 : -1;
+                // Change velocity
+                ball.dx = direction * ball.speed * Math.cos(angleRad);
+                ball.dy = ball.speed * Math.sin(angleRad);
+                ball.speed += 0.3;
+            }
+
+            // Score
+            if (ball.x - ball.radius < 0) {
+                ai.score++;
+                resetBall();
+            } else if (ball.x + ball.radius > canvas.width) {
+                player.score++;
+                resetBall();
+            }
+        }
+
+        // Reset ball
+        function resetBall() {
+            ball.x = canvas.width/2;
+            ball.y = canvas.height/2;
+            ball.speed = 5;
+            ball.dx = 5 * (Math.random() > 0.5 ? 1 : -1);
+            ball.dy = 5 * (Math.random() > 0.5 ? 1 : -1);
+        }
+
+        // Controls
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowUp') player.dy = -7;
+            else if (e.key === 'ArrowDown') player.dy = 7;
+        });
+        document.addEventListener('keyup', function(e) {
+            if (e.key === 'ArrowUp' || e.key === 'ArrowDown') player.dy = 0;
+        });
+
+        // Game loop
+        function game() {
+            update();
+            draw();
+            requestAnimationFrame(game);
+        }
+        game();
+    </script>
+</body>
+</html>
+```
+
+To download:
+1. Copy the content above into a new file called `pong.html`.
+2. Open it in your browser to play!
+
+Let me know if you want the file in a different format (such as a zip), or if you want to add sound, mobile controls, or other features!
