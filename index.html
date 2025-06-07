@@ -240,6 +240,18 @@
             margin-top: 20px;
         }
 
+        /* 新增哔哩哔哩图标样式 */
+        .bilibili-icon {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 5px;
+            width: 20px;
+            height: 20px;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJDMTAuOSAwIDkuOCAwLjQgOSAyTDMgMkMwLjkgMiAwIDIuOSAwIDVDMCA3LjYgMS45IDEwLjEgNC41IDEwLjlDMy44IDEyLjYgMyAxNC43IDMgMTdDMyAxOS4zIDIuOSAyMSAxLjUgMjFDMi4xIDIyLjYgMy43IDI0IDUuNSAyNEM3LjMgMjQgOSAyMi42IDkuOCAyMSgxMC4zIDIxLjMgMTAuOSAyMS41IDExLjUgMjFDMTEuOCAyMS43IDEyLjIgMjIgMTIuNiAyMkgxMi40QzEyLjggMjIgMTMuMiAyMS43IDEzLjUgMjFDMzUgMjEgMTYuNyAyNCAxOC41IDI0QzIwLjMgMjQgMjIgMjIuNiAyMiAyMUMxOS44IDIxIDE5IDExLjkgMTkgMTRWMTBDMTkgNS41IDE1LjUgMiAxMiAyek0xNiAxMkg4VjRIMTRWOGgxLjVDMTUuOCA4IDE2IDguMiAxNiA4LjVWMTFDMTYgMTEuMyAxNS44IDEyIDE1LjUgMTJIMTRWMTJaIiBmaWxsPSIjRkZGIi8+PC9zdmc+');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
         /* 响应式优化 */
         @media (max-width: 768px) {
             .email-group {
@@ -451,10 +463,10 @@
             <img src="hwlogo.png" alt="HW STUDIOS" class="logo">
         </a>
         <div class="nav-links">
-            <!-- 新增捐款按钮 -->
             <a href="donate.html" class="donate-btn">捐款</a>
             <a href="#home">首页</a>
-            <a href="#games">作品</a>
+            <!-- 新增的小游戏选项 -->
+            <a href="game-select.html">小游戏</a>
             <a href="#about">关于</a>
             <a href="#contact">联系</a>
         </div>
@@ -529,7 +541,7 @@
         </div>
     </div>
 
- <!-- 新增制作人员名单部分 -->
+    <!-- 新增制作人员名单部分 -->
     <section class="detail-section" id="block-runner-credits">
         <div class="detail-container">
             <h2 class="detail-title">方块跑酷 - 制作人员名单</h2>
@@ -554,44 +566,43 @@
             </div>
         </div>
     </section>
-                <!-- 右侧 - 中室详情 -->
-                <div>
-                    <!-- 中室制作人员名单部分 -->
-                    <section id="the-backrooms-credits">
-                        <h2 class="detail-title">中室 - 制作人员名单</h2>
-                        <div class="detail-content">
-                            <ul>
-                                <li>创意总监：程康</li>
-                                <li>美术指导：张智宸</li>
-                                <li>程序开发：王雍,张智宸</li>
-                                <li>音效设计：王雍,张智宸,叶鑫炎</li>
-                            </ul>
-                        </div>
-                    </section>
 
-                    <!-- 中室发布日期部分 -->
-                    <section id="the-backrooms-release-date">
-                        <h2 class="detail-title">中室 - 发布日期</h2>
-                        <div class="detail-content">
-                            <p>《中室》DEMO版计划于2026年2月发布，敬请期待！</p>
-                            <p>《中室》完整版计划于2026年7月发布，敬请期待！</p>
-                        </div>
-                    </section>
-                </div>
+    <!-- 中室制作人员名单部分 -->
+    <section class="detail-section" id="the-backrooms-credits">
+        <div class="detail-container">
+            <h2 class="detail-title">中室 - 制作人员名单</h2>
+            <div class="detail-content">
+                <ul>
+                    <li>创意总监：程康</li>
+                    <li>美术指导：张智宸</li>
+                    <li>程序开发：王雍,张智宸</li>
+                    <li>音效设计：王雍,张智宸,叶鑫炎</li>
+                </ul>
             </div>
         </div>
     </section>
 
-      <footer id="contact">
+    <!-- 中室发布日期部分 -->
+    <section class="detail-section" id="the-backrooms-release-date">
+        <div class="detail-container">
+            <h2 class="detail-title">中室 - 发布日期</h2>
+            <div class="detail-content">
+                <p>《中室》DEMO版计划于2026年2月发布，敬请期待！</p>
+                <p>《中室》完整版计划于2026年7月发布，敬请期待！</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
         <div class="footer-container">
             <div class="contact-info">
                 <p class="email-group">
                     <span class="contact-label">我们：</span>
                     <span class="email">hwstudios@163.com</span>
                     <span class="email-separator">　</span>
+                    <!-- 新增可点击的B站链接 -->
                     <span class="bilibili-icon"></span>
-                    <!-- 移除了email类 -->
-                    <span id="bilibili-link">哔哩哔哩：智宸叫HUG</span>
+                    <span class="email" id="bilibili-link">哔哩哔哩：智宸叫HUG</span>
                 </p>
                 <p class="copyright">© 2025 HW STUDIOS</p>
             </div>
@@ -599,33 +610,31 @@
     </footer>
 
     <script>
-      // 只选择真正的邮箱元素（在contact-label后面的那个）
-const realEmails = document.querySelectorAll('.contact-label + .email');
-realEmails.forEach(email => {
-    email.addEventListener('click', function () {
-        const tempInput = document.createElement('input');
-        tempInput.value = this.textContent;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand('copy');
-        document.body.removeChild(tempInput);
-        alert('已复制');
-    });
-});
+        const emails = document.querySelectorAll('.email');
+        emails.forEach(email => {
+            email.addEventListener('click', function () {
+                const tempInput = document.createElement('input');
+                tempInput.value = this.textContent;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                alert('已复制');
+            });
+        });
 
-// B站链接单独处理
-const bilibiliLink = document.getElementById('bilibili-link');
-if (bilibiliLink) {
-    bilibiliLink.addEventListener('click', function() {
-        window.open('https://space.bilibili.com/582736285', '_blank');
-    });
-    bilibiliLink.style.cursor = 'pointer';
-}
+        // 新增B站链接点击事件
+        const bilibiliLink = document.getElementById('bilibili-link');
+        if (bilibiliLink) {
+            bilibiliLink.addEventListener('click', function() {
+                // 替换为实际的B站链接
+                window.open('https://space.bilibili.com/12345678', '_blank');
+            });
+            
+            // 修改鼠标样式为手型
+            bilibiliLink.style.cursor = 'pointer';
+        }
     </script>
 </body>
 
 </html>
-
-
-
-
