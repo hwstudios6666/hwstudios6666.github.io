@@ -187,156 +187,6 @@
                 grid-template-columns: 1fr;
                 text-align: center;
             }
-
-            .studio-photo {
-                max-width: 80%;
-                margin: 0 auto;
-            }
-        }
-
-        /* 页脚样式 */
-        footer {
-            background-color: #1e3799;
-            padding: 40px 20px;
-            font-family: 'Microsoft YaHei', sans-serif;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .email-group {
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-
-        .contact-label {
-            color: #ADD8E6;
-            margin-right: 8px;
-        }
-
-        .email {
-            color: #ffffff;
-            transition: opacity 0.3s ease;
-            cursor: pointer;
-        }
-
-        .email:hover {
-            opacity: 0.8;
-        }
-
-        .email-separator {
-            display: inline-block;
-            width: 1.2em;
-            /* 使用全角空格 */
-        }
-
-        .copyright {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9em;
-            margin-top: 20px;
-        }
-
-        /* 新增哔哩哔哩图标样式 */
-        .bilibili-icon {
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 5px;
-            width: 20px;
-            height: 20px;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJDMTAuOSAwIDkuOCAwLjQgOSAyTDMgMkMwLjkgMiAwIDIuOSAwIDVDMCA3LjYgMS45IDEwLjEgNC41IDEwLjlDMy44IDEyLjYgMyAxNC43IDMgMTdDMyAxOS4zIDIuOSAyMSAxLjUgMjFDMi4xIDIyLjYgMy43IDI0IDUuNSAyNEM3LjMgMjQgOSAyMi42IDkuOCAyMSgxMC4zIDIxLjMgMTAuOSAyMS41IDExLjUgMjFDMTEuOCAyMS43IDEyLjIgMjIgMTIuNiAyMkgxMi40QzEyLjggMjIgMTMuMiAyMS43IDEzLjUgMjFDMzUgMjEgMTYuNyAyNCAxOC41IDI0QzIwLjMgMjQgMjIgMjIuNiAyMiAyMUMxOS44IDIxIDE5IDExLjkgMTkgMTRWMTBDMTkgNS41IDE1LjUgMiAxMiAyek0xNiAxMkg4VjRIMTRWOGgxLjVDMTUuOCA4IDE2IDguMiAxNiA4LjVWMTFDMTYgMTEuMyAxNS44IDEyIDE1LjUgMTJIMTRWMTJaIiBmaWxsPSIjRkZGIi8+PC9zdmc+');
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        /* 响应式优化 */
-        @media (max-width: 768px) {
-            .email-group {
-                font-size: 1em;
-            }
-
-            .email-separator {
-                display: block;
-                height: 8px;
-                width: 0;
-            }
-        }
-
-        /* 基础布局样式 */
-        .two-column-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .image-container {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .responsive-image {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .content-container {
-            padding: 30px 0;
-        }
-
-        .section-title {
-            font-size: 2.5em;
-            margin-bottom: 1.2em;
-            position: relative;
-            padding-bottom: 0.5em;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: #1e3799;
-        }
-
-        /* 响应式设计 */
-        @media (max-width: 1024px) {
-            .two-column-layout {
-                gap: 40px;
-            }
-
-            .responsive-image {
-                height: 400px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .two-column-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .image-container {
-                margin-bottom: 30px;
-            }
-
-            .section-title {
-                font-size: 2em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .responsive-image {
-                height: 300px;
-            }
         }
 
         /* 作品部分样式 */
@@ -355,10 +205,19 @@
         }
 
         /* 作品网格 */
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        .game-grid-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
             gap: 30px;
+            padding-bottom: 20px;
+        }
+
+        .game-grid {
+            display: flex;
+            gap: 30px;
+            flex-shrink: 0;
         }
 
         /* 作品卡片 */
@@ -367,6 +226,8 @@
             border-radius: 10px;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            scroll-snap-align: start;
+            min-width: 280px;
         }
 
         .game-image {
@@ -449,7 +310,7 @@
             .game-grid {
                 gap: 20px;
             }
-            
+
             .dual-detail-layout {
                 grid-template-columns: 1fr;
             }
@@ -512,30 +373,58 @@
     <div class="container" id="games">
         <h1>我们的作品</h1>
 
-        <div class="game-grid">
-            <!-- 作品1 -->
-            <div class="game-card">
-                <img src="game1.png" alt="方块跑酷" class="game-image">
-                <div class="game-info">
-                    <h3 class="game-title">方块跑酷</h3>
-                    <p class="game-description">即将发布</p>
-                    <p class="game-description">HW STUDIOS的第一款游戏（TIPS：DEMO版的效果不是正式版的效果，欢迎反馈！）</p>
-                    <div class="game-options">
-                        <a href="#block-runner-credits">制作人员名单</a>
-                        <a href="#block-runner-demo-date">DEMO版本发布日期</a>
+        <div class="game-grid-container">
+            <div class="game-grid">
+                <!-- 作品1 -->
+                <div class="game-card">
+                    <img src="game1.png" alt="方块跑酷" class="game-image">
+                    <div class="game-info">
+                        <h3 class="game-title">方块跑酷</h3>
+                        <p class="game-description">即将发布</p>
+                        <p class="game-description">HW STUDIOS的第一款游戏（TIPS：DEMO版的效果不是正式版的效果，欢迎反馈！）</p>
+                        <div class="game-options">
+                            <a href="#block-runner-credits">制作人员名单</a>
+                            <a href="#block-runner-demo-date">DEMO版本发布日期</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- 作品2 -->
-            <div class="game-card">
-                <img src="game2.png" alt="中室" class="game-image">
-                <div class="game-info">
-                    <h3 class="game-title">中室</h3>
-                    <p class="game-description">恐怖逃脱游戏</p>
-                    <div class="game-options">
-                        <a href="#the-backrooms-credits">制作人员名单</a>
-                        <a href="#the-backrooms-release-date">发布日期</a>
+                <!-- 作品2 -->
+                <div class="game-card">
+                    <img src="game2.png" alt="中室" class="game-image">
+                    <div class="game-info">
+                        <h3 class="game-title">中室</h3>
+                        <p class="game-description">恐怖逃脱游戏</p>
+                        <div class="game-options">
+                            <a href="#the-backrooms-credits">制作人员名单</a>
+                            <a href="#the-backrooms-release-date">发布日期</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 新增游戏 1 -->
+                <div class="game-card">
+                    <img src="new-game1.png" alt="太空冒险" class="game-image">
+                    <div class="game-info">
+                        <h3 class="game-title">太空冒险</h3>
+                        <p class="game-description">这是一款充满刺激和挑战的太空冒险游戏，玩家将驾驶宇宙飞船探索未知星系。</p>
+                        <div class="game-options">
+                            <a href="#space-adventure-credits">制作人员名单</a>
+                            <a href="#space-adventure-release-date">发布日期</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 新增游戏 2 -->
+                <div class="game-card">
+                    <img src="new-game2.png" alt="魔法世界" class="game-image">
+                    <div class="game-info">
+                        <h3 class="game-title">魔法世界</h3>
+                        <p class="game-description">在这个魔法世界里，玩家可以学习各种魔法技能，与邪恶势力战斗。</p>
+                        <div class="game-options">
+                            <a href="#magic-world-credits">制作人员名单</a>
+                            <a href="#magic-world-release-date">发布日期</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -595,6 +484,56 @@
         </div>
     </section>
 
+    <!-- 太空冒险制作人员名单部分 -->
+    <section class="detail-section" id="space-adventure-credits">
+        <div class="detail-container">
+            <h2 class="detail-title">noteOS - 制作人员名单</h2>
+            <div class="detail-content">
+                <ul>
+                    <li>策划：张智宸</li>
+                    <li>美术：张智宸</li>
+                    <li>开发：张智宸</li>
+                    <li>音效：张智宸</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 太空冒险发布日期部分 -->
+    <section class="detail-section" id="space-adventure-release-date">
+        <div class="detail-container">
+            <h2 class="detail-title"> - 发布日期</h2>
+            <div class="detail-content">
+                <p>《太空冒险》预计于2026年10月发布，敬请期待！</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 魔法世界制作人员名单部分 -->
+    <section class="detail-section" id="magic-world-credits">
+        <div class="detail-container">
+            <h2 class="detail-title">魔法世界 - 制作人员名单</h2>
+            <div class="detail-content">
+                <ul>
+                    <li>策划：孙七</li>
+                    <li>美术：周八</li>
+                    <li>开发：吴九</li>
+                    <li>音效：郑十</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 魔法世界发布日期部分 -->
+    <section class="detail-section" id="magic-world-release-date">
+        <div class="detail-container">
+            <h2 class="detail-title">魔法世界 - 发布日期</h2>
+            <div class="detail-content">
+                <p>《魔法世界》预计于2027年1月发布，敬请期待！</p>
+            </div>
+        </div>
+    </section>
+
     <footer id="contact">
         <div class="footer-container">
             <div class="contact-info">
@@ -604,37 +543,10 @@
                     <span class="email-separator">　</span>
                     <!-- 新增可点击的B站链接 -->
                     <span class="bilibili-icon"></span>
-                    <span id="bilibili-link">哔哩哔哩：智宸叫HUG</span>
                 </p>
-                <p class="copyright">© 2025 HW STUDIOS</p>
             </div>
         </div>
     </footer>
-
-    <script>
-       // 只选择真正的邮箱元素（在contact-label后面的那个）
-const realEmails = document.querySelectorAll('.contact-label + .email');
-realEmails.forEach(email => {
-    email.addEventListener('click', function () {
-        const tempInput = document.createElement('input');
-        tempInput.value = this.textContent;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand('copy');
-        document.body.removeChild(tempInput);
-        alert('已复制');
-    });
-});
-
-// B站链接单独处理
-const bilibiliLink = document.getElementById('bilibili-link');
-if (bilibiliLink) {
-    bilibiliLink.addEventListener('click', function() {
-        window.open('https://space.bilibili.com/582736285', '_blank');
-    });
-    bilibiliLink.style.cursor = 'pointer';
-}
-    </script>
 </body>
 
 </html>
