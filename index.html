@@ -19,7 +19,7 @@
             line-height: 1.6;
         }
 
-        /* 苹果风格导航栏 - 保持与原设计一致并优化细节 */
+        /* 苹果风格导航栏 - 新增语言切换按钮样式 */
         nav {
             position: fixed;
             top: 0;
@@ -78,7 +78,7 @@
             border-radius: 1px;
         }
 
-        /* 捐款按钮样式 - 优化苹果风格质感 */
+        /* 捐款按钮样式 - 苹果风格质感 */
         .donate-btn {
             background-color: #ff6600;
             color: white !important;
@@ -87,6 +87,10 @@
             font-size: 13px !important;
             transition: background-color 0.2s ease, transform 0.1s ease;
             text-decoration: none;
+            display: inline-block; /* 确保按钮样式正常显示 */
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
         }
 
         .donate-btn:hover {
@@ -99,10 +103,39 @@
             transform: translateY(0);
         }
 
+        /* 新增：语言切换按钮样式 */
+        .lang-switch-container {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-left: 16px;
+        }
+
+        .lang-btn {
+            background-color: transparent;
+            border: 1px solid #0066cc;
+            color: #0066cc;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            background-color: rgba(0, 102, 204, 0.05);
+        }
+
+        .lang-btn.active {
+            background-color: #0066cc;
+            color: white;
+        }
+
         /* 响应式调整 - 适配移动端 */
         @media (max-width: 768px) {
             .nav-links {
-                gap: 16px;
+                gap: 12px;
             }
             
             .nav-links a {
@@ -112,6 +145,17 @@
             .donate-btn {
                 padding: 4px 12px;
                 font-size: 12px !important;
+            }
+            
+            /* 移动端语言切换按钮优化 */
+            .lang-switch-container {
+                gap: 6px;
+                margin-left: 12px;
+            }
+            
+            .lang-btn {
+                padding: 3px 8px;
+                font-size: 11px;
             }
         }
 
@@ -516,6 +560,7 @@
             justify-content: center;
             align-items: center;
             gap: 16px;
+            flex-wrap: wrap; /* 适配移动端换行 */
         }
 
         .contact-label {
@@ -548,6 +593,12 @@
             text-decoration: underline;
         }
 
+        /* 页脚捐款按钮容器样式 */
+        .footer-donate-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
         .copyright {
             font-size: 12px;
             color: #94a3b8;
@@ -559,6 +610,10 @@
             .email-group {
                 flex-direction: column;
                 gap: 8px;
+            }
+            
+            .footer-donate-container {
+                margin: 16px 0;
             }
         }
     </style>
@@ -577,10 +632,16 @@
             <a href="game-select.html" id="nav-mini-games">小游戏</a>
             <a href="#about" id="nav-about">关于</a>
             <a href="#contact" id="nav-contact">联系</a>
+            
+            <!-- 新增：中英文切换按钮容器 -->
+            <div class="lang-switch-container">
+                <button class="lang-btn" id="lang-zh" data-lang="zh">中文</button>
+                <button class="lang-btn" id="lang-en" data-lang="en">English</button>
+            </div>
         </div>
         
-        <!-- 右侧捐款按钮 -->
-        <div class="nav-actions">
+        <!-- 右侧捐款按钮 - 已隐藏 -->
+        <div class="nav-actions" style="display: none;">
             <a href="donate.html" class="donate-btn" id="nav-donate">捐款</a>
         </div>
     </nav>
@@ -781,7 +842,7 @@
         </div>
     </section>
 
-    <!-- 页脚 -->
+    <!-- 页脚 - 保留捐款按钮 -->
     <footer id="contact">
         <div class="footer-container">
             <div class="contact-info">
@@ -794,13 +855,19 @@
                     </span>
                 </p>
             </div>
+            
+            <!-- 页脚捐款按钮 -->
+            <div class="footer-donate-container">
+                <a href="donate.html" class="donate-btn" id="footer-donate">捐款</a>
+            </div>
+            
             <p class="copyright" id="footer-copyright">© 2025 HW STUDIOS. 保留所有权利。</p>
         </div>
     </footer>
 
-    <!-- 语言切换脚本 - 自动识别设备语言 -->
+    <!-- 语言切换脚本 - 新增手动切换功能 -->
     <script>
-        // 定义中英文对照文本（覆盖所有页面元素）
+        // 定义中英文对照文本
         const translations = {
             zh: {
                 pageTitle: "HW STUDIOS 游戏工作室",
@@ -811,6 +878,7 @@
                 navAbout: "关于",
                 navContact: "联系",
                 navDonate: "捐款",
+                footerDonate: "捐款",
                 heroTitle: "创造非凡的游戏体验",
                 heroDesc: "我们致力于开发充满创意与激情的精品游戏",
                 heroImgAlt: "游戏场景展示",
@@ -899,6 +967,7 @@
                 navAbout: "About",
                 navContact: "Contact",
                 navDonate: "Donate",
+                footerDonate: "Donate",
                 heroTitle: "Create Extraordinary Gaming Experiences",
                 heroDesc: "We are committed to developing high-quality games full of creativity and passion",
                 heroImgAlt: "Game Scene Display",
@@ -999,6 +1068,8 @@
             document.getElementById('nav-about').textContent = texts.navAbout;
             document.getElementById('nav-contact').textContent = texts.navContact;
             document.getElementById('nav-donate').textContent = texts.navDonate;
+            // 更新页脚捐款按钮文本
+            document.getElementById('footer-donate').textContent = texts.footerDonate;
             // 更新英雄区
             document.getElementById('hero-title').textContent = texts.heroTitle;
             document.getElementById('hero-desc').textContent = texts.heroDesc;
@@ -1082,12 +1153,30 @@
             document.getElementById('footer-copyright').textContent = texts.footerCopyright;
             // 更新HTML根元素语言属性
             document.documentElement.lang = lang;
+
+            // 更新语言按钮激活状态
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
         }
 
-        // 页面加载时自动应用设备语言
+        // 页面加载时自动应用设备语言 + 绑定语言切换按钮事件
         document.addEventListener('DOMContentLoaded', () => {
-            const deviceLang = getDeviceLanguage();
-            applyLanguage(deviceLang);
+            // 自动应用设备语言
+            const initialLang = getDeviceLanguage();
+            applyLanguage(initialLang);
+
+            // 绑定语言切换按钮点击事件
+            document.getElementById('lang-zh').addEventListener('click', () => {
+                applyLanguage('zh');
+            });
+
+            document.getElementById('lang-en').addEventListener('click', () => {
+                applyLanguage('en');
+            });
 
             // 导航栏滚动高亮（苹果风格交互）
             window.addEventListener('scroll', () => {
