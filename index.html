@@ -682,25 +682,30 @@
     </section>
 
     <!-- 作品展示区 -->
-    <div class="container" id="games">
-        <h1 class="section-title" id="games-title">我们的作品</h1>
-
-        <div class="game-grid-container">
-            <div class="game-grid">
-                <!-- 作品1：方块跑酷 -->
-                <div class="game-card">
-                    <img src="game1.png" alt="方块跑酷游戏截图" class="game-image" id="game1-img-alt">
-                    <div class="game-info">
-                        <h3 class="game-title" id="game1-title">方块跑酷</h3>
-                        <p class="game-description" id="game1-desc-1">即将发布</p>
-                        <p class="game-description" id="game1-desc-2">HW STUDIOS的第一款游戏（TIPS：DEMO版的效果不是正式版的效果，欢迎反馈！）</p>
-                        <div class="game-options">
-                            <a href="#block-runner-credits" id="game1-link-1">制作人员名单</a>
-                            <a href="#block-runner-demo-date" id="game1-link-2">DEMO版本发布日期</a>
-                        </div>
-                    </div>
+   <div class="container" id="games">
+    <div class="game-grid">
+        <!-- 作品1：方块跑酷 -->
+        <div class="game-card">
+            < img src="game1.png" alt="Block Runner Game Screenshot" class="game-image" id="game1-img-alt">
+            <div class="game-info">
+                <h3 class="game-title" id="game1-title">方块跑酷</h3>
+                <h3 class="game-title" id="game1-title-en" style="display: none;">Block Runner</h3>
+                
+                <p class="game-description" id="game1-desc-1">已上线</p >
+                <p class="game-description" id="game1-desc-1-en" style="display: none;">Now Available</p >
+                
+                <p class="game-description" id="game1-desc-2">HW STUDIOS的第一款游戏，欢迎前往游玩！</p >
+                <p class="game-description" id="game1-desc-2-en" style="display: none;">The first game by HW STUDIOS, welcome to play!</p >
+                
+                <div class="game-options">
+                    <a href=" " id="game1-link-1">制作人员名单</a >
+                    <a href="#block-runner-credits" id="game1-link-1-en" style="display: none;">Credits</a >
+                    <!-- 修正按钮文本为“立即前往游玩” -->
+                    <a href="#block-runner-play" class="play-btn" id="game1-link-2">立即前往游玩</a >
+                    <a href="#block-runner-play" class="play-btn" id="game1-link-2-en" style="display: none;">Play Now</a >
                 </div>
-
+            </div>
+        </div>
                 <!-- 作品2：中室 -->
                 <div class="game-card">
                     <img src="game2.png" alt="中室游戏截图" class="game-image" id="game2-img-alt">
@@ -846,6 +851,29 @@
             <p class="copyright" id="footer-copyright">© 2025 HW STUDIOS. 保留所有权利。</p>
         </div>
     </footer>
+    
+    <section class="detail-section" id="block-runner-play" style="background-color: #fff8f2;">
+    <div class="detail-container">
+        <h2 class="detail-title" id="detail2-title">方块跑酷 - 立即前往游玩</h2>
+        <h2 class="detail-title" id="detail2-title-en" style="display: none;">Block Runner - Play Now</h2>
+        <div class="detail-content" style="padding: 20px 0;">
+            <!-- 预留游玩地址填写位：将 YOUR_PLAY_URL_HERE 替换为实际链接 -->
+            <a href="" target="_blank" class="play-btn" style="font-size: 16px; padding: 10px 24px;">
+                点击前往游玩
+            </a >
+            <a href="https://code.xueersi.com/home/project/detail?lang=scratch&pid=29046854&version=3.0&langType=scratch" target="_blank" class="play-btn" id="detail2-play-btn-en" style="font-size: 16px; padding: 10px 24px; display: none;">
+                Click to Play
+            </a >
+            <!-- 修正提示文本 -->
+            <p style="margin-top: 16px; color: #666;" id="detail2-desc">
+                提示：点击上方按钮将跳转至游戏页面，建议在浏览器中打开以获得最佳体验
+            </p >
+            <p style="margin-top: 16px; color: #666; display: none;" id="detail2-desc-en">
+                Tip: Click the button above to jump to the game page. It is recommended to open it in a browser for the best experience.
+            </p >
+        </div>
+    </div>
+</section>
 
     <!-- 语言切换脚本 - 新增手动切换功能 -->
     <script>
