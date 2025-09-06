@@ -19,7 +19,7 @@
             line-height: 1.6;
         }
 
-        /* 苹果风格导航栏 - 新增语言切换按钮样式 */
+        /* 苹果风格导航栏 */
         nav {
             position: fixed;
             top: 0;
@@ -103,7 +103,7 @@
             transform: translateY(0);
         }
 
-        /* 新增：语言切换按钮样式 */
+        /* 语言切换按钮样式 */
         .lang-switch-container {
             display: flex;
             gap: 8px;
@@ -132,6 +132,28 @@
             color: white;
         }
 
+        /* 橙色游玩按钮样式 */
+        .play-btn {
+            background-color: #ff6600; /* 橙色主色 */
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .play-btn:hover {
+            background-color: #e65c00; /* hover深橙色 */
+            transform: translateY(-1px);
+        }
+        .play-btn:active {
+            transform: translateY(0);
+        }
+
         /* 响应式调整 - 适配移动端 */
         @media (max-width: 768px) {
             .nav-links {
@@ -157,9 +179,15 @@
                 padding: 3px 8px;
                 font-size: 11px;
             }
+
+            /* 移动端游玩按钮优化 */
+            .play-btn {
+                padding: 6px 16px;
+                font-size: 12px;
+            }
         }
 
-        /* 英雄区样式 - 苹果风格优化 */
+        /* 英雄区样式 */
         .hero {
             height: calc(100vh - 44px);
             display: flex;
@@ -274,7 +302,7 @@
             }
         }
 
-        /* 关于我们 section - 苹果风格卡片化 */
+        /* 关于我们 section */
         .introduction-section {
             padding: 80px 8%;
             background-color: #fff;
@@ -379,7 +407,7 @@
             }
         }
 
-        /* 作品展示区 - 苹果风格卡片设计 */
+        /* 作品展示区 - 重点调整部分 */
         #games {
             padding: 80px 8% 100px;
             background-color: #f8fafc;
@@ -403,7 +431,7 @@
 
         .game-card {
             background-color: #fff;
-            border-radius: 16px;
+            border-radius: 20px; /* 增加弯角弧度 */
             overflow: hidden;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -414,11 +442,13 @@
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
         }
 
+        /* 作品图片样式 - 关键调整 */
         .game-image {
             width: 100%;
-            height: 180px;
+            height: auto; /* 改为auto以完整显示图片 */
             object-fit: cover;
             display: block;
+            border-radius: 20px 20px 0 0; /* 顶部弯角，与卡片匹配 */
         }
 
         .game-info {
@@ -466,10 +496,6 @@
                 gap: 24px;
             }
 
-            .game-image {
-                height: 150px;
-            }
-
             .game-info {
                 padding: 20px;
             }
@@ -479,7 +505,7 @@
             }
         }
 
-        /* 详情section - 苹果风格简洁设计 */
+        /* 详情section */
         .detail-section {
             padding: 60px 8%;
             background-color: #fff;
@@ -537,10 +563,11 @@
             }
         }
 
-        /* 页脚 - 苹果风格简洁设计 */
+        /* 页脚 */
         footer {
-            padding: 40px 8% 20px;
             background-color: #f8fafc;
+            padding: 40px 8% 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .footer-container {
@@ -554,66 +581,56 @@
         }
 
         .email-group {
-            font-size: 14px;
-            color: #4a5568;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
             align-items: center;
-            gap: 16px;
-            flex-wrap: wrap; /* 适配移动端换行 */
         }
 
         .contact-label {
-            font-weight: 500;
-            color: #1a2947;
+            color: #4a5568;
+            font-size: 0.95em;
         }
 
         .email {
             color: #0066cc;
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
         }
 
         .email:hover {
+            color: #1e3799;
             text-decoration: underline;
         }
 
         .bilibili-icon {
-            display: inline-flex;
-            align-items: center;
+            margin-top: 8px;
         }
 
-        .bilibili-icon a {
-            color: #0066cc;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .bilibili-icon a:hover {
-            text-decoration: underline;
-        }
-
-        /* 页脚捐款按钮容器样式 */
         .footer-donate-container {
-            margin: 20px 0;
-            text-align: center;
+            margin-bottom: 32px;
         }
 
         .copyright {
-            font-size: 12px;
             color: #94a3b8;
-            margin-top: 20px;
-            text-align: center;
+            font-size: 0.85em;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         @media (max-width: 768px) {
-            .email-group {
-                flex-direction: column;
-                gap: 8px;
+            footer {
+                padding: 30px 5% 15px;
             }
-            
-            .footer-donate-container {
-                margin: 16px 0;
+
+            .contact-label, .email {
+                font-size: 0.9em;
+            }
+
+            .copyright {
+                font-size: 0.8em;
             }
         }
     </style>
@@ -622,37 +639,49 @@
     <nav>
         <!-- 左侧Logo -->
         <a href="#home" class="logo">
-            <img src="IMG_5685.jpeg" alt="HW STUDIOS" id="nav-logo-alt">
+            <img src="IMG_5685.jpeg" alt="HW STUDIOS Logo" id="nav-logo-alt">
         </a>
         
         <!-- 中间导航链接 -->
         <div class="nav-links">
             <a href="#home" class="active" id="nav-home">首页</a>
-            <a href="#games" id="nav-works">作品</a>
-            <a href="game-select.html" id="nav-mini-games">小游戏</a>
-            <a href="#about" id="nav-about">关于</a>
-            <a href="#contact" id="nav-contact">联系</a>
+            <a href="#home" id="nav-home-en" style="display: none;">Home</a>
             
-            <!-- 新增：中英文切换按钮容器 -->
+            <a href="#games" id="nav-works">作品</a>
+            <a href="#games" id="nav-works-en" style="display: none;">Works</a>
+            
+            <a href="game-select.html" id="nav-mini-games">小游戏</a>
+            <a href="game-select.html" id="nav-mini-games-en" style="display: none;">Mini Games</a>
+            
+            <a href="#about" id="nav-about">关于</a>
+            <a href="#about" id="nav-about-en" style="display: none;">About</a>
+            
+            <a href="#contact" id="nav-contact">联系</a>
+            <a href="#contact" id="nav-contact-en" style="display: none;">Contact</a>
+            
+            <!-- 中英文切换按钮容器 -->
             <div class="lang-switch-container">
-                <button class="lang-btn" id="lang-zh" data-lang="zh">中文</button>
+                <button class="lang-btn active" id="lang-zh" data-lang="zh">中文</button>
                 <button class="lang-btn" id="lang-en" data-lang="en">English</button>
             </div>
         </div>
         
-        <!-- 右侧捐款按钮 - 已隐藏 -->
-        <div class="nav-actions" style="display: none;">
-            <a href="donate.html" class="donate-btn" id="nav-donate">捐款</a>
+        <!-- 右侧捐款按钮 -->
+        <div class="nav-actions">
+            <a href="donate.html" class="donate-btn" id="nav-donate">支持我们</a>
+            <a href="donate.html" class="donate-btn" id="nav-donate-en" style="display: none;">Support Us</a>
         </div>
     </nav>
 
     <section class="hero" id="home">
         <div class="hero-content">
             <h1 id="hero-title">创造非凡的游戏体验</h1>
+            <h1 id="hero-title-en" style="display: none;">Create Extraordinary Gaming Experiences</h1>
             <p id="hero-desc">我们致力于开发充满创意与激情的精品游戏</p>
+            <p id="hero-desc-en" style="display: none;">We are committed to developing high-quality games filled with creativity and passion</p>
         </div>
         <div class="hero-image">
-            <img src="game-scene.jpeg" alt="游戏场景展示" id="hero-img-alt">
+            <img src="game-scene.png" alt="Game Scene Display" id="hero-img-alt">
         </div>
     </section>
 
@@ -662,18 +691,25 @@
             <div class="two-column-layout">
                 <!-- 左侧图片容器 -->
                 <div class="image-container">
-                    <img src="studios photo.jpg" alt="工作室照片" class="responsive-image" id="about-img-alt">
+                    <img src="studios photo.jpg" alt="Studio Photo" class="responsive-image" id="about-img-alt">
                 </div>
 
                 <!-- 右侧文字容器 -->
                 <div class="content-container">
                     <h2 class="section-title" id="about-title">关于HW STUDIOS</h2>
+                    <h2 class="section-title" id="about-title-en" style="display: none;">About HW STUDIOS</h2>
                     <div class="content-wrapper">
                         <p id="about-desc-1">HW STUDIOS由张智宸和王雍成立的游戏工作室，自2025年成立以来，我们始终致力于打造令人难忘的游戏体验。由游戏开发者同学和编程爱好者同学组成的团队，融合前沿技术与艺术表达，持续为玩家带来惊喜。</p>
+                        <p id="about-desc-1-en" style="display: none;">HW STUDIOS is a game studio founded by Zhang Zhichen and Wang Yong. Since its establishment in 2025, we have been committed to creating unforgettable gaming experiences. Our team, composed of student game developers and programming enthusiasts, combines cutting-edge technology with artistic expression to continuously surprise players.</p>
+                        
                         <p id="about-desc-2">我们相信游戏是连接世界的桥梁，在追求卓越品质的同时，始终坚持「玩家至上」的开发理念。</p>
+                        <p id="about-desc-2-en" style="display: none;">We believe games are a bridge connecting the world. While pursuing excellent quality, we always adhere to the "player-first" development philosophy.</p>
+                        
                         <ul class="about-highlights">
                             <li id="about-highlight-1">8+工作室同学</li>
+                            <li id="about-highlight-1-en" style="display: none;">8+ Studio Members</li>
                             <li id="about-highlight-2">4+专业开发者同学</li>
+                            <li id="about-highlight-2-en" style="display: none;">4+ Professional Developers</li>
                         </ul>
                     </div>
                 </div>
@@ -682,75 +718,85 @@
     </section>
 
     <!-- 作品展示区 -->
-   <div class="container" id="games">
-    <div class="game-grid">
-        <!-- 作品1：方块跑酷 -->
-        <div class="game-card">
-            <img src="game1.png" alt="Block Runner Game Screenshot" class="game-image" id="game1-img-alt">
-            <div class="game-info">
-                <h3 class="game-title" id="game1-title">方块跑酷</h3>
-                <h3 class="game-title" id="game1-title-en" style="display: none;">Block Runner</h3>
-                
-                <p class="game-description" id="game1-desc-1">已上线</p >
-                <p class="game-description" id="game1-desc-1-en" style="display: none;">Now Available</p >
-                
-                <p class="game-description" id="game1-desc-2">HW STUDIOS的第一款游戏，欢迎前往游玩！</p >
-                <p class="game-description" id="game1-desc-2-en" style="display: none;">The first game by HW STUDIOS, welcome to play!</p >
-                
-                <div class="game-options">
-                    <a href=" " id="game1-link-1">制作人员名单</a >
-                    <a href="#block-runner-credits" id="game1-link-1-en" style="display: none;">Credits</a >
-                    <!-- 修正按钮文本为“立即前往游玩” -->
-                    <a href="#block-runner-play" class="play-btn" id="game1-link-2">立即前往游玩</a >
-                    <a href="#block-runner-play" class="play-btn" id="game1-link-2-en" style="display: none;">Play Now</a >
+    <div class="container" id="games">
+        <h1 class="section-title" id="games-title">我们的作品</h1>
+        <h1 class="section-title" id="games-title-en" style="display: none;">Our Works</h1>
+
+        <div class="game-grid-container">
+            <div class="game-grid">
+                <!-- 作品1：方块跑酷 -->
+                <div class="game-card">
+                    <img src="game1.png" alt="Block Runner Game Screenshot" class="game-image" id="game1-img-alt">
+                    <div class="game-info">
+                        <h3 class="game-title" id="game1-title">方块跑酷</h3>
+                        <h3 class="game-title" id="game1-title-en" style="display: none;">Block Runner</h3>
+                        
+                        <p class="game-description" id="game1-desc-1">已上线</p>
+                        <p class="game-description" id="game1-desc-1-en" style="display: none;">Now Available</p>
+                        
+                        <p class="game-description" id="game1-desc-2">HW STUDIOS的第一款游戏，欢迎前往游玩！</p>
+                        <p class="game-description" id="game1-desc-2-en" style="display: none;">The first game by HW STUDIOS, welcome to play!</p>
+                        
+                        <div class="game-options">
+                            <a href="#block-runner-credits" id="game1-link-1">制作人员名单</a>
+                            <a href="#block-runner-credits" id="game1-link-1-en" style="display: none;">Credits</a>
+                            <a href="#block-runner-play" class="play-btn" id="game1-link-2">立即前往游玩</a>
+                            <a href="#block-runner-play" class="play-btn" id="game1-link-2-en" style="display: none;">Play Now</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+
                 <!-- 作品2：中室 -->
                 <div class="game-card">
-                    <img src="game2.png" alt="中室游戏截图" class="game-image" id="game2-img-alt">
+                    <img src="game2.png" alt="Sideroom Game Screenshot" class="game-image" id="game2-img-alt">
                     <div class="game-info">
-                        <h3 class="game-title" id="game2-title">sideroom</h3>
+                        <h3 class="game-title" id="game2-title">中室</h3>
+                        <h3 class="game-title" id="game2-title-en" style="display: none;">Sideroom</h3>
+                        
                         <p class="game-description" id="game2-desc">恐怖逃脱游戏</p>
+                        <p class="game-description" id="game2-desc-en" style="display: none;">Horror Escape Game</p>
+                        
                         <div class="game-options">
                             <a href="#the-backrooms-credits" id="game2-link-1">制作人员名单</a>
+                            <a href="#the-backrooms-credits" id="game2-link-1-en" style="display: none;">Credits</a>
                             <a href="#the-backrooms-release-date" id="game2-link-2">发布日期</a>
+                            <a href="#the-backrooms-release-date" id="game2-link-2-en" style="display: none;">Release Date</a>
                         </div>
                     </div>
                 </div>
 
-                    <!-- 作品3：太空冒险 -->
+                <!-- 作品3：/noteos -->
                 <div class="game-card">
-                    <img src="new-game1.png" alt="《/.noteos》游戏截图" class="game-image" id="game3-img-alt">
+                    <img src="new-game1.png" alt="/noteos Game Screenshot" class="game-image" id="game3-img-alt">
                     <div class="game-info">
-                        <h3 class="game-title" id="game3-title">/.noteos</h3>
+                        <h3 class="game-title" id="game3-title">/noteos</h3>
+                        <h3 class="game-title" id="game3-title-en" style="display: none;">/noteos</h3>
+                        
                         <p class="game-description" id="game3-desc">这是一款《KinitoPET》风格游戏，玩家将解密电脑系统里未知的秘密。</p>
+                        <p class="game-description" id="game3-desc-en" style="display: none;">This is a "KinitoPET"-style game where players will uncover unknown secrets in the computer system.</p>
+                        
                         <div class="game-options">
-                            <a href="#space-adventure-credits" id="game3-link-1">制作人员名单</a>
-                        </div>
-                    </div>
-                </div>
-                     <!-- 作品3：太空冒险 -->
-                <div class="game-card">
-                    <img src="new-game1.png" alt="《深圳SZ》游戏截图" class="game-image" id="game3-img-alt">
-                    <div class="game-info">
-                        <h3 class="game-title" id="game3-title">深圳SZ</h3>
-                        <p class="game-description" id="game3-desc">这是一款Roblox《Tang Country》风格游戏，玩家将扮演角色探索深圳。</p>
-                        <div class="game-options">
-                            <a href="#space-adventure-credits" id="game3-link-1">制作人员名单</a>
+                            <a href="#noteos-credits" id="game3-link-1">制作人员名单</a>
+                            <a href="#noteos-credits" id="game3-link-1-en" style="display: none;">Credits</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 作品4：学校战争 -->
+                <!-- 作品4：深圳SZ -->
                 <div class="game-card">
-                    <img src="new-game2.png" alt="学校战争游戏截图" class="game-image" id="game4-img-alt">
+                    <img src="new-game2.png" alt="Shenzhen SZ Game Screenshot" class="game-image" id="game4-img-alt">
                     <div class="game-info">
-                        <h3 class="game-title" id="game4-title">学校战争</h3>
-                        <p class="game-description" id="game4-desc">在这个校园题材的射击策略游戏中，玩家将组建团队，完成各类趣味挑战与任务并射击敌人。</p>
+                        <h3 class="game-title" id="game4-title">深圳SZ</h3>
+                        <h3 class="game-title" id="game4-title-en" style="display: none;">Shenzhen SZ</h3>
+                        
+                        <p class="game-description" id="game4-desc">这是一款Roblox《Tang Country》风格游戏，玩家将扮演角色探索深圳。</p>
+                        <p class="game-description" id="game4-desc-en" style="display: none;">This is a Roblox "Tang Country"-style game where players take on roles to explore Shenzhen.</p>
+                        
                         <div class="game-options">
-                            <a href="#magic-world-credits" id="game4-link-1">制作人员名单</a>
-                            <a href="#magic-world-release-date" id="game4-link-2">发布日期</a>
+                            <a href="#shenzhen-sz-credits" id="game4-link-1">制作人员名单</a>
+                            <a href="#shenzhen-sz-credits" id="game4-link-1-en" style="display: none;">Credits</a>
+                            <a href="#shenzhen-sz-release-date" id="game4-link-2">发布日期</a>
+                            <a href="#shenzhen-sz-release-date" id="game4-link-2-en" style="display: none;">Release Date</a>
                         </div>
                     </div>
                 </div>
@@ -762,456 +808,134 @@
     <section class="detail-section" id="block-runner-credits">
         <div class="detail-container">
             <h2 class="detail-title" id="detail1-title">方块跑酷 - 制作人员名单</h2>
+            <h2 class="detail-title" id="detail1-title-en" style="display: none;">Block Runner - Credits</h2>
             <div class="detail-content">
                 <p id="detail1-desc">这里列出方块跑酷的制作人员名单：</p>
+                <p id="detail1-desc-en" style="display: none;">The following is the list of production staff for Block Runner:</p>
                 <ul>
                     <li id="detail1-item-1">策划：张智宸, 王雍</li>
+                    <li id="detail1-item-1-en" style="display: none;">Planning: Zhang Zhichen, Wang Yong</li>
                     <li id="detail1-item-2">美术：张智宸</li>
+                    <li id="detail1-item-2-en" style="display: none;">Art: Zhang Zhichen</li>
                     <li id="detail1-item-3">开发：张智宸, 王雍, 王书航</li>
+                    <li id="detail1-item-3-en" style="display: none;">Development: Zhang Zhichen, Wang Yong, Wang Shuhang</li>
                     <li id="detail1-item-4">配音：张智宸, 王雍, 吴语行</li>
+                    <li id="detail1-item-4-en" style="display: none;">Voice Acting: Zhang Zhichen, Wang Yong, Wu Yuhang</li>
                     <li id="detail1-item-5">剧情：叶鑫炎, 张智宸, 王雍</li>
+                    <li id="detail1-item-5-en" style="display: none;">Story: Ye Xinyan, Zhang Zhichen, Wang Yong</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- 中室详情 -->
-    <section class="detail-section" id="the-backrooms-credits">
+    <!-- 方块跑酷 - 游玩模块 -->
+    <section class="detail-section" id="block-runner-play" style="background-color: #fff8f2;">
         <div class="detail-container">
-            <h2 class="detail-title" id="detail3-title">sideroom - 制作人员名单</h2>
-            <div class="detail-content">
-                <ul>
-                    <li id="detail3-item-1">创意总监：程康</li>
-                    <li id="detail3-item-2">美术指导：张智宸</li>
-                    <li id="detail3-item-3">程序开发：王雍, 张智宸</li>
-                    <li id="detail3-item-4">音效设计：王雍, 张智宸, 叶鑫炎</li>
-                </ul>
+            <h2 class="detail-title" id="detail2-title">方块跑酷 - 立即前往游玩</h2>
+            <h2 class="detail-title" id="detail2-title-en" style="display: none;">Block Runner - Play Now</h2>
+            <div class="detail-content" style="padding: 20px 0;">
+                <!-- 替换 YOUR_PLAY_URL_HERE 为实际游戏链接 -->
+                <a href="YOUR_PLAY_URL_HERE" target="_blank" class="play-btn" style="font-size: 16px; padding: 10px 24px;">
+                    点击前往游玩
+                </a>
+                <a href="YOUR_PLAY_URL_HERE" target="_blank" class="play-btn" id="detail2-play-btn-en" style="font-size: 16px; padding: 10px 24px; display: none;">
+                    Click to Play
+                </a>
+                <p style="margin-top: 16px; color: #666;" id="detail2-desc">
+                    提示：点击上方按钮将跳转至游戏页面，建议在浏览器中打开以获得最佳体验
+                </p>
+                <p style="margin-top: 16px; color: #666; display: none;" id="detail2-desc-en">
+                    Tip: Click the button above to jump to the game page. It is recommended to open it in a browser for the best experience.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- 太空冒险详情 -->
-    <section class="detail-section" id="space-adventure-credits">
-        <div class="detail-container">
-            <h2 class="detail-title" id="detail5-title">/.noteos - 制作人员名单</h2>
-            <div class="detail-content">
-                <ul>
-                    <li id="detail5-item-1">策划：张智宸</li>
-                    <li id="detail5-item-2">美术：张智宸</li>
-                    <li id="detail5-item-3">开发：张智宸</li>
-                    <li id="detail5-item-4">音效：张智宸</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="detail-section" id="space-adventure-release-date">
-        <div class="detail-container">
-            <h2 class="detail-title" id="detail6-title">/.noteos - 发布日期</h2>
-            <div class="detail-content">
-                <p id="detail6-desc">《/.noteos》预计连同《方块跑酷》发布，敬请期待！</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 学校战争详情 -->
-    <section class="detail-section" id="magic-world-credits">
-        <div class="detail-container">
-            <h2 class="detail-title" id="detail7-title">《学校战争》 - 制作人员名单</h2>
-            <div class="detail-content">
-                <ul>
-                    <li id="detail7-item-1">策划：张智宸</li>
-                    <li id="detail7-item-2">美术：王雍，叶鑫焱</li>
-                    <li id="detail7-item-3">开发：王书航，张智宸</li>
-                    <li id="detail7-item-4">音效：吴语行，叶鑫炎</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- 页脚 - 保留捐款按钮 -->
+    <!-- 页脚部分 -->
     <footer id="contact">
         <div class="footer-container">
             <div class="contact-info">
-                <p class="email-group">
-                    <span class="contact-label" id="footer-contact">我们：</span>
-                    <a href="mailto:hwstudios@163.com" class="email">hwstudios@163.com</a>
-                    <span class="email-separator">　</span>
+                <div class="email-group">
+                    <span class="contact-label" id="footer-contact-label">联系我们：</span>
+                    <span class="contact-label" id="footer-contact-label-en" style="display: none;">Contact Us：</span>
+                    <a href="mailto:hwstudios6666@163.com" class="email" id="footer-email">hwstudios6666@163.com</a>
+                    
                     <span class="bilibili-icon">
-                        <a href="https://space.bilibili.com/582736285" id="footer-bilibili">B站主页</a>
+                        <a href="#" id="footer-bilibili">哔哩哔哩账号：HW STUDIOS</a>
+                        <a href="#" id="footer-bilibili-en" style="display: none;">Bilibili Account：HW STUDIOS</a>
                     </span>
-                </p>
+                </div>
             </div>
-            
-            <!-- 页脚捐款按钮 -->
+
+            <!-- 页脚捐款按钮容器 -->
             <div class="footer-donate-container">
-                <a href="donate.html" class="donate-btn" id="footer-donate">捐款</a>
+                <a href="donate.html" class="donate-btn" id="footer-donate">支持我们</a>
+                <a href="donate.html" class="donate-btn" id="footer-donate-en" style="display: none;">Support Us</a>
             </div>
-            
-            <p class="copyright" id="footer-copyright">© 2025 HW STUDIOS. 保留所有权利。</p>
+
+            <div class="copyright" id="footer-copyright">
+                © 2025 HW STUDIOS. 保留所有权利。
+            </div>
+            <div class="copyright" id="footer-copyright-en" style="display: none;">
+                © 2025 HW STUDIOS. All Rights Reserved.
+            </div>
         </div>
     </footer>
-    
-    <section class="detail-section" id="block-runner-play" style="background-color: #fff8f2;">
-    <div class="detail-container">
-        <h2 class="detail-title" id="detail2-title">方块跑酷 - 立即前往游玩</h2>
-        <h2 class="detail-title" id="detail2-title-en" style="display: none;">Block Runner - Play Now</h2>
-        <div class="detail-content" style="padding: 20px 0;">
-            <!-- 预留游玩地址填写位：将 YOUR_PLAY_URL_HERE 替换为实际链接 -->
-            <a href="" target="_blank" class="play-btn" style="font-size: 16px; padding: 10px 24px;">
-                点击前往游玩
-            </a >
-            <a href="https://code.xueersi.com/home/project/detail?lang=scratch&pid=29046854&version=3.0&langType=scratch" target="_blank" class="play-btn" id="detail2-play-btn-en" style="font-size: 16px; padding: 10px 24px; display: none;">
-                Click to Play
-            </a >
-            <!-- 修正提示文本 -->
-            <p style="margin-top: 16px; color: #666;" id="detail2-desc">
-                提示：点击上方按钮将跳转至游戏页面，建议在浏览器中打开以获得最佳体验
-            </p >
-            <p style="margin-top: 16px; color: #666; display: none;" id="detail2-desc-en">
-                Tip: Click the button above to jump to the game page. It is recommended to open it in a browser for the best experience.
-            </p >
-        </div>
-    </div>
-</section>
 
-    <!-- 语言切换脚本 - 新增手动切换功能 -->
+    <!-- 语言切换逻辑脚本 -->
     <script>
-        // 定义中英文对照文本
-        const translations = {
-            zh: {
-                pageTitle: "HW STUDIOS 游戏工作室",
-                navLogoAlt: "HW STUDIOS",
-                navHome: "首页",
-                navWorks: "作品",
-                navMiniGames: "小游戏",
-                navAbout: "关于",
-                navContact: "联系",
-                navDonate: "捐款",
-                footerDonate: "捐款",
-                heroTitle: "创造非凡的游戏体验",
-                heroDesc: "我们致力于开发充满创意与激情的精品游戏",
-                heroImgAlt: "游戏场景展示",
-                aboutImgAlt: "工作室照片",
-                aboutTitle: "关于HW STUDIOS",
-                aboutDesc1: "HW STUDIOS由张智宸和王雍成立的游戏工作室，自2025年成立以来，我们始终致力于打造令人难忘的游戏体验。由游戏开发者同学和编程爱好者同学组成的团队，融合前沿技术与艺术表达，持续为玩家带来惊喜。",
-                aboutDesc2: "我们相信游戏是连接世界的桥梁，在追求卓越品质的同时，始终坚持「玩家至上」的开发理念。",
-                aboutHighlight1: "8+工作室同学",
-                aboutHighlight2: "4+专业开发者同学",
-                gamesTitle: "我们的作品",
-                // 游戏1：方块跑酷
-                game1ImgAlt: "方块跑酷游戏截图",
-                game1Title: "方块跑酷",
-                game1Desc1: "即将发布",
-                game1Desc2: "HW STUDIOS的第一款游戏（TIPS：DEMO版的效果不是正式版的效果，欢迎反馈！）",
-                game1Link1: "制作人员名单",
-                game1Link2: "DEMO版本发布日期",
-                // 游戏2：sideroom
-                game2ImgAlt: "中室游戏截图",
-                game2Title: "sideroom",
-                game2Desc: "恐怖逃脱游戏",
-                game2Link1: "制作人员名单",
-                game2Link2: "发布日期",
-                // 游戏3：/.noteos
-                game3ImgAlt: "太空冒险游戏截图",
-                game3Title: "/.noteos",
-                game3Desc: "这是一款充满刺激和挑战的太空冒险游戏，玩家将驾驶宇宙飞船探索未知星系。",
-                game3Link1: "制作人员名单",
-                game3Link2: "发布日期",
-                // 游戏4：学校战争
-                game4ImgAlt: "学校战争游戏截图",
-                game4Title: "学校战争",
-                game4Desc: "在这个校园题材的策略游戏中，玩家将组建团队，完成各类趣味挑战与任务。",
-                game4Link1: "制作人员名单",
-                game4Link2: "发布日期",
-                // 详情1：方块跑酷制作人员
-                detail1Title: "方块跑酷 - 制作人员名单",
-                detail1Desc: "这里列出方块跑酷的制作人员名单：",
-                detail1Item1: "策划：张智宸, 王雍",
-                detail1Item2: "美术：张智宸",
-                detail1Item3: "开发：张智宸, 王雍, 王书航",
-                detail1Item4: "配音：张智宸, 王雍, 吴语行",
-                detail1Item5: "剧情：叶鑫炎, 张智宸, 王雍",
-                // 详情2：方块跑酷DEMO日期
-                detail2Title: "方块跑酷 - DEMO版本发布日期",
-                detail2Desc: "方块跑酷的 DEMO 版本预计在 2025 年 7 月 31 日发布。",
-                // 详情3：中室制作人员
-                detail3Title: "sideroom - 制作人员名单",
-                detail3Item1: "创意总监：程康",
-                detail3Item2: "美术指导：张智宸",
-                detail3Item3: "程序开发：王雍, 张智宸",
-                detail3Item4: "音效设计：王雍, 张智宸, 叶鑫炎",
-                // 详情4：中室发布日期
-                detail4Title: "sideroom - 发布日期",
-                detail4Desc1: "《sideroom》DEMO版计划于2026年2月发布，敬请期待！",
-                detail4Desc2: "《sideroom》完整版计划于2026年7月发布，敬请期待！",
-                // 详情5：noteOS制作人员
-                detail5Title: "/.noteos - 制作人员名单",
-                detail5Item1: "策划：张智宸",
-                detail5Item2: "美术：张智宸",
-                detail5Item3: "开发：张智宸",
-                detail5Item4: "音效：张智宸",
-                // 详情6：noteOS发布日期
-                detail6Title: "/.noteos - 发布日期",
-                detail6Desc: "《/.noteos》预计连同《方块跑酷》发布，敬请期待！",
-                // 详情7：学校战争制作人员
-                detail7Title: "《学校战争》 - 制作人员名单",
-                detail7Item1: "策划：张智宸",
-                detail7Item2: "美术：王雍，叶鑫焱",
-                detail7Item3: "开发：王书航，张智宸",
-                detail7Item4: "音效：吴语行，叶鑫炎",
-                // 详情8：学校战争发布日期
-                detail8Title: "《学校战争》- 发布日期",
-                detail8Desc: "《学校战争》预计于2026年7月发布，敬请期待！",
-                // 页脚
-                footerContact: "我们：",
-                footerBilibili: "B站主页",
-                footerCopyright: "© 2025 HW STUDIOS. 保留所有权利。"
-            },
-            en: {
-                pageTitle: "HW STUDIOS Game Studio",
-                navLogoAlt: "HW STUDIOS",
-                navHome: "Home",
-                navWorks: "Works",
-                navMiniGames: "Mini Games",
-                navAbout: "About",
-                navContact: "Contact",
-                navDonate: "Donate",
-                footerDonate: "Donate",
-                heroTitle: "Create Extraordinary Gaming Experiences",
-                heroDesc: "We are committed to developing high-quality games full of creativity and passion",
-                heroImgAlt: "Game Scene Display",
-                aboutImgAlt: "Studio Photo",
-                aboutTitle: "About HW STUDIOS",
-                aboutDesc1: "HW STUDIOS is a game studio founded by Zhang Zhichen and Wang Yong. Since its establishment in 2025, we have been committed to creating unforgettable gaming experiences. Our team consists of student game developers and programming enthusiasts, integrating cutting-edge technology with artistic expression to continuously bring surprises to players.",
-                aboutDesc2: "We believe that games are a bridge connecting the world. While pursuing excellent quality, we always adhere to the development concept of 'Players First'.",
-                aboutHighlight1: "8+ Studio Members",
-                aboutHighlight2: "4+ Professional Developers",
-                gamesTitle: "Our Works",
-                // 游戏1：Block Runner
-                game1ImgAlt: "Block Runner Game Screenshot",
-                game1Title: "Block Runner",
-                game1Desc1: "Coming Soon",
-                game1Desc2: "The first game of HW STUDIOS (TIPS: The DEMO version effect is not the official version effect, feedback is welcome!)",
-                game1Link1: "Production Team",
-                game1Link2: "DEMO Release Date",
-                // 游戏2：The Backrooms
-                game2ImgAlt: "The Backrooms Game Screenshot",
-                game2Title: "The Backrooms",
-                game2Desc: "Horror Escape Game",
-                game2Link1: "Production Team",
-                game2Link2: "Release Date",
-                // 游戏3：Space Adventure
-                game3ImgAlt: "Space Adventure Game Screenshot",
-                game3Title: "Space Adventure",
-                game3Desc: "An exciting and challenging space adventure game where players pilot a spaceship to explore unknown galaxies.",
-                game3Link1: "Production Team",
-                game3Link2: "Release Date",
-                // 游戏4：School Wars
-                game4ImgAlt: "School Wars Game Screenshot",
-                game4Title: "School Wars",
-                game4Desc: "A campus-themed strategy game where players form teams to complete various interesting challenges and tasks.",
-                game4Link1: "Production Team",
-                game4Link2: "Release Date",
-                // 详情1：Block Runner Team
-                detail1Title: "Block Runner - Production Team",
-                detail1Desc: "The production team of Block Runner is listed below:",
-                detail1Item1: "Planning: Zhang Zhichen, Wang Yong",
-                detail1Item2: "Art: Zhang Zhichen",
-                detail1Item3: "Development: Zhang Zhichen, Wang Yong, Wang Shuhang",
-                detail1Item4: "Voice Acting: Zhang Zhichen, Wang Yong, Wu Yuhang",
-                detail1Item5: "Story: Ye Xinyan, Zhang Zhichen, Wang Yong",
-                // 详情2：Block Runner DEMO Date
-                detail2Title: "Block Runner - DEMO Release Date",
-                detail2Desc: "The DEMO version of Block Runner is expected to be released on July 31, 2025.",
-                // 详情3：The Backrooms Team
-                detail3Title: "sideroom - Production Team",
-                detail3Item1: "Creative Director: Cheng Kang",
-                detail3Item2: "Art Director: Zhang Zhichen",
-                detail3Item3: "Program Development: Wang Yong, Zhang Zhichen",
-                detail3Item4: "Sound Design: Wang Yong, Zhang Zhichen, Ye Xinyan",
-                // 详情4：The Backrooms Release Date
-                detail4Title: "The sideroom - Release Date",
-                detail4Desc1: "The DEMO version of 'The Backrooms' is planned to be released in February 2026, stay tuned!",
-                detail4Desc2: "The full version of 'The Backrooms' is planned to be released in July 2026, stay tuned!",
-                // 详情5：noteOS Team
-                detail5Title: "noteOS - Production Team",
-                detail5Item1: "Planning: Zhang Zhichen",
-                detail5Item2: "Art: Zhang Zhichen",
-                detail5Item3: "Development: Zhang Zhichen",
-                detail5Item4: "Sound: Zhang Zhichen",
-                // 详情6：noteOS Release Date
-                detail6Title: "/.noteos - Release Date",
-                detail6Desc: "'/.noteos' is expected to be released together with 'Block Runner', stay tuned!",
-                // 详情7：School Wars Team
-                detail7Title: "School Wars - Production Team",
-                detail7Item1: "Planning: Zhang Zhichen",
-                detail7Item2: "Art: Wang Yong, Ye Xinyan",
-                detail7Item3: "Development: Wang Shuhang, Zhang Zhichen",
-                detail7Item4: "Sound: Wu Yuhang, Ye Xinyan",
-                // 详情8：School Wars Release Date
-                detail8Title: "School Wars - Release Date",
-                detail8Desc: "'School Wars' is expected to be released in July 2026, stay tuned!",
-                // 页脚
-                footerContact: "Contact Us:",
-                footerBilibili: "Bilibili Page",
-                footerCopyright: "© 2025 HW STUDIOS. All Rights Reserved."
-            }
-        };
-
-        // 获取设备语言（英语环境返回en，其他返回zh）
-        function getDeviceLanguage() {
-            const lang = navigator.language || navigator.userLanguage;
-            return lang.startsWith('en') ? 'en' : 'zh';
-        }
-
-        // 应用语言设置到页面所有元素
-        function applyLanguage(lang) {
-            const texts = translations[lang];
-            // 更新页面标题
-            document.getElementById('page-title').textContent = texts.pageTitle;
-            // 更新导航栏
-            document.getElementById('nav-logo-alt').alt = texts.navLogoAlt;
-            document.getElementById('nav-home').textContent = texts.navHome;
-            document.getElementById('nav-works').textContent = texts.navWorks;
-            document.getElementById('nav-mini-games').textContent = texts.navMiniGames;
-            document.getElementById('nav-about').textContent = texts.navAbout;
-            document.getElementById('nav-contact').textContent = texts.navContact;
-            document.getElementById('nav-donate').textContent = texts.navDonate;
-            // 更新页脚捐款按钮文本
-            document.getElementById('footer-donate').textContent = texts.footerDonate;
-            // 更新英雄区
-            document.getElementById('hero-title').textContent = texts.heroTitle;
-            document.getElementById('hero-desc').textContent = texts.heroDesc;
-            document.getElementById('hero-img-alt').alt = texts.heroImgAlt;
-            // 更新关于我们
-            document.getElementById('about-img-alt').alt = texts.aboutImgAlt;
-            document.getElementById('about-title').textContent = texts.aboutTitle;
-            document.getElementById('about-desc-1').textContent = texts.aboutDesc1;
-            document.getElementById('about-desc-2').textContent = texts.aboutDesc2;
-            document.getElementById('about-highlight-1').textContent = texts.aboutHighlight1;
-            document.getElementById('about-highlight-2').textContent = texts.aboutHighlight2;
-            // 更新作品区标题
-            document.getElementById('games-title').textContent = texts.gamesTitle;
-            // 更新游戏1（方块跑酷）
-            document.getElementById('game1-img-alt').alt = texts.game1ImgAlt;
-            document.getElementById('game1-title').textContent = texts.game1Title;
-            document.getElementById('game1-desc-1').textContent = texts.game1Desc1;
-            document.getElementById('game1-desc-2').textContent = texts.game1Desc2;
-            document.getElementById('game1-link-1').textContent = texts.game1Link1;
-            document.getElementById('game1-link-2').textContent = texts.game1Link2;
-            // 更新游戏2（中室）
-            document.getElementById('game2-img-alt').alt = texts.game2ImgAlt;
-            document.getElementById('game2-title').textContent = texts.game2Title;
-            document.getElementById('game2-desc').textContent = texts.game2Desc;
-            document.getElementById('game2-link-1').textContent = texts.game2Link1;
-            document.getElementById('game2-link-2').textContent = texts.game2Link2;
-            // 更新游戏3（太空冒险）
-            document.getElementById('game3-img-alt').alt = texts.game3ImgAlt;
-            document.getElementById('game3-title').textContent = texts.game3Title;
-            document.getElementById('game3-desc').textContent = texts.game3Desc;
-            document.getElementById('game3-link-1').textContent = texts.game3Link1;
-            document.getElementById('game3-link-2').textContent = texts.game3Link2;
-            // 更新游戏4（学校战争）
-            document.getElementById('game4-img-alt').alt = texts.game4ImgAlt;
-            document.getElementById('game4-title').textContent = texts.game4Title;
-            document.getElementById('game4-desc').textContent = texts.game4Desc;
-            document.getElementById('game4-link-1').textContent = texts.game4Link1;
-            document.getElementById('game4-link-2').textContent = texts.game4Link2;
-            // 更新详情1（方块跑酷制作人员）
-            document.getElementById('detail1-title').textContent = texts.detail1Title;
-            document.getElementById('detail1-desc').textContent = texts.detail1Desc;
-            document.getElementById('detail1-item-1').textContent = texts.detail1Item1;
-            document.getElementById('detail1-item-2').textContent = texts.detail1Item2;
-            document.getElementById('detail1-item-3').textContent = texts.detail1Item3;
-            document.getElementById('detail1-item-4').textContent = texts.detail1Item4;
-            document.getElementById('detail1-item-5').textContent = texts.detail1Item5;
-            // 更新详情2（方块跑酷DEMO日期）
-            document.getElementById('detail2-title').textContent = texts.detail2Title;
-            document.getElementById('detail2-desc').textContent = texts.detail2Desc;
-            // 更新详情3（中室制作人员）
-            document.getElementById('detail3-title').textContent = texts.detail3Title;
-            document.getElementById('detail3-item-1').textContent = texts.detail3Item1;
-            document.getElementById('detail3-item-2').textContent = texts.detail3Item2;
-            document.getElementById('detail3-item-3').textContent = texts.detail3Item3;
-            document.getElementById('detail3-item-4').textContent = texts.detail3Item4;
-            // 更新详情4（中室发布日期）
-            document.getElementById('detail4-title').textContent = texts.detail4Title;
-            document.getElementById('detail4-desc-1').textContent = texts.detail4Desc1;
-            document.getElementById('detail4-desc-2').textContent = texts.detail4Desc2;
-            // 更新详情5（noteOS制作人员）
-            document.getElementById('detail5-title').textContent = texts.detail5Title;
-            document.getElementById('detail5-item-1').textContent = texts.detail5Item1;
-            document.getElementById('detail5-item-2').textContent = texts.detail5Item2;
-            document.getElementById('detail5-item-3').textContent = texts.detail5Item3;
-            document.getElementById('detail5-item-4').textContent = texts.detail5Item4;
-            // 更新详情6（noteOS发布日期）
-            document.getElementById('detail6-title').textContent = texts.detail6Title;
-            document.getElementById('detail6-desc').textContent = texts.detail6Desc;
-            // 更新详情7（学校战争制作人员）
-            document.getElementById('detail7-title').textContent = texts.detail7Title;
-            document.getElementById('detail7-item-1').textContent = texts.detail7Item1;
-            document.getElementById('detail7-item-2').textContent = texts.detail7Item2;
-            document.getElementById('detail7-item-3').textContent = texts.detail7Item3;
-            document.getElementById('detail7-item-4').textContent = texts.detail7Item4;
-            // 更新详情8（学校战争发布日期）
-            document.getElementById('detail8-title').textContent = texts.detail8Title;
-            document.getElementById('detail8-desc').textContent = texts.detail8Desc;
-            // 更新页脚
-            document.getElementById('footer-contact').textContent = texts.footerContact;
-            document.getElementById('footer-bilibili').textContent = texts.footerBilibili;
-            document.getElementById('footer-copyright').textContent = texts.footerCopyright;
-            // 更新HTML根元素语言属性
-            document.documentElement.lang = lang;
-
-            // 更新语言按钮激活状态
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.dataset.lang === lang) {
-                    btn.classList.add('active');
+        // 获取语言切换按钮和所有中英文文本元素
+        const langZhBtn = document.getElementById('lang-zh');
+        const langEnBtn = document.getElementById('lang-en');
+        const enElements = document.querySelectorAll('[id$="-en"]');
+        
+        // 切换为中文
+        function switchToZh() {
+            langZhBtn.classList.add('active');
+            langEnBtn.classList.remove('active');
+            
+            // 隐藏所有英文元素
+            enElements.forEach(el => el.style.display = 'none');
+            
+            // 显示所有中文元素（默认显示）
+            document.querySelectorAll('[id]:not([id$="-en"])').forEach(el => {
+                // 恢复正常显示（除了语言按钮）
+                if (!el.id.startsWith('lang-')) {
+                    if (el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'P' || el.tagName === 'LI' || el.tagName === 'A') {
+                        el.style.display = '';
+                    }
                 }
             });
         }
 
-        // 页面加载时自动应用设备语言 + 绑定语言切换按钮事件
-        document.addEventListener('DOMContentLoaded', () => {
-            // 自动应用设备语言
-            const initialLang = getDeviceLanguage();
-            applyLanguage(initialLang);
-
-            // 绑定语言切换按钮点击事件
-            document.getElementById('lang-zh').addEventListener('click', () => {
-                applyLanguage('zh');
-            });
-
-            document.getElementById('lang-en').addEventListener('click', () => {
-                applyLanguage('en');
-            });
-
-            // 导航栏滚动高亮（苹果风格交互）
-            window.addEventListener('scroll', () => {
-                const sections = ['home', 'games', 'about', 'contact'];
-                let currentSection = 'home';
-
-                sections.forEach(section => {
-                    const elem = document.getElementById(section);
-                    if (elem) {
-                        const rect = elem.getBoundingClientRect();
-                        if (rect.top <= 100 && rect.bottom >= 100) {
-                            currentSection = section;
-                        }
+        // 切换为英文
+        function switchToEn() {
+            langEnBtn.classList.add('active');
+            langZhBtn.classList.remove('active');
+            
+            // 隐藏所有中文元素
+            document.querySelectorAll('[id]:not([id$="-en"])').forEach(el => {
+                if (el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'P' || el.tagName === 'LI' || el.tagName === 'A') {
+                    if (!el.id.startsWith('lang-') && !el.classList.contains('lang-btn')) {
+                        el.style.display = 'none';
                     }
-                });
-
-                // 更新导航高亮
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${currentSection}`) {
-                        link.classList.add('active');
-                    }
-                });
+                }
             });
-        });
+            
+            // 显示所有英文元素
+            enElements.forEach(el => {
+                if (el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'P' || el.tagName === 'LI' || el.tagName === 'A') {
+                    el.style.display = '';
+                }
+            });
+        }
+
+        // 绑定按钮点击事件
+        langZhBtn.addEventListener('click', switchToZh);
+        langEnBtn.addEventListener('click', switchToEn);
+
+        // 初始化默认显示中文
+        switchToZh();
     </script>
 </body>
 </html>
